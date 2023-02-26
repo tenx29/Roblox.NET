@@ -19,12 +19,12 @@ namespace Roblox
         /// <exception cref="InvalidCookieException">Thrown if the given cookie has an invalid format</exception>
         public RobloxClientCredential(string cookie)
         {
-            // When split using the sequence "_|", there should be 3 parts, of which the first part is empty and
-            // the third part is the security token with a length of 712 characters.
+            // When split using the sequence "|_", there should be 2 parts, of which the second part is the
+            // security token with a length of 712 characters.
 
-            var parts = cookie.Split(new[] {"_|"}, StringSplitOptions.None);
+            var parts = cookie.Split(new[] {"|_"}, StringSplitOptions.None);
 
-            if (parts.Length != 3 || parts[0] != "" || parts[2].Length != 712)
+            if (parts.Length != 2 || parts[1].Length != 712)
                 throw new InvalidCookieException("The cookie is invalid.");
 
             Cookie = cookie;

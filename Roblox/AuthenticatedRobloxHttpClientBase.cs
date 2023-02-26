@@ -17,7 +17,7 @@ namespace Roblox
         public AuthenticatedRobloxHttpClientBase(Uri baseUri, RobloxClientCredential credential) : base(baseUri)
         {
             Credential = credential;
-            HttpClient.DefaultRequestHeaders.Add("Cookie", Credential.Cookie);
+            HttpClient.DefaultRequestHeaders.Add("Cookie", $".ROBLOSECURITY={Credential.Cookie}");
         }
     }
 }

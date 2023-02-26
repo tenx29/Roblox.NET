@@ -6,55 +6,58 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="AccountInformation"/>
-        <Folder Include="AccountSettings"/>
-        <Folder Include="AdConfiguration"/>
-        <Folder Include="Ads"/>
-        <Folder Include="AssetDelivery"/>
-        <Folder Include="Auth"/>
-        <Folder Include="Avatar"/>
-        <Folder Include="Badges"/>
-        <Folder Include="Billing"/>
-        <Folder Include="Catalog"/>
-        <Folder Include="Chat"/>
-        <Folder Include="ChatModeration"/>
-        <Folder Include="ClientSettings"/>
-        <Folder Include="Contacts"/>
-        <Folder Include="ContentStore"/>
-        <Folder Include="Develop"/>
-        <Folder Include="Economy"/>
-        <Folder Include="EconomyCreatorStats"/>
-        <Folder Include="EngagementPayouts"/>
-        <Folder Include="Followings"/>
-        <Folder Include="Friends"/>
-        <Folder Include="GameInternationalization"/>
-        <Folder Include="GameJoin"/>
-        <Folder Include="GamePersistence"/>
-        <Folder Include="Games"/>
-        <Folder Include="Groups"/>
-        <Folder Include="GroupsModeration"/>
-        <Folder Include="Inventory"/>
-        <Folder Include="ItemConfiguration"/>
-        <Folder Include="Legacy\Api"/>
-        <Folder Include="Locale"/>
-        <Folder Include="LocalizationTables"/>
-        <Folder Include="Metrics"/>
-        <Folder Include="Notifications"/>
-        <Folder Include="Points"/>
-        <Folder Include="PremiumFeatures"/>
-        <Folder Include="Presence"/>
-        <Folder Include="PrivateMessages"/>
-        <Folder Include="Publish"/>
-        <Folder Include="Search"/>
-        <Folder Include="Thumbnails"/>
-        <Folder Include="ThumbnailsResizer"/>
-        <Folder Include="Trades"/>
-        <Folder Include="TranslationRoles"/>
-        <Folder Include="Translations"/>
-        <Folder Include="TwoStepVerification"/>
-        <Folder Include="UserModeration"/>
-        <Folder Include="Users"/>
-        <Folder Include="Voice"/>
+        <Folder Include="AccountSettings" />
+        <Folder Include="AdConfiguration" />
+        <Folder Include="Ads" />
+        <Folder Include="AssetDelivery" />
+        <Folder Include="Auth" />
+        <Folder Include="Avatar" />
+        <Folder Include="Badges" />
+        <Folder Include="Billing" />
+        <Folder Include="Catalog" />
+        <Folder Include="Chat" />
+        <Folder Include="ChatModeration" />
+        <Folder Include="ClientSettings" />
+        <Folder Include="Contacts" />
+        <Folder Include="ContentStore" />
+        <Folder Include="Develop" />
+        <Folder Include="Economy" />
+        <Folder Include="EconomyCreatorStats" />
+        <Folder Include="EngagementPayouts" />
+        <Folder Include="Followings" />
+        <Folder Include="Friends" />
+        <Folder Include="GameInternationalization" />
+        <Folder Include="GameJoin" />
+        <Folder Include="GamePersistence" />
+        <Folder Include="Games" />
+        <Folder Include="Groups" />
+        <Folder Include="GroupsModeration" />
+        <Folder Include="Inventory" />
+        <Folder Include="ItemConfiguration" />
+        <Folder Include="Legacy\Api" />
+        <Folder Include="Locale" />
+        <Folder Include="LocalizationTables" />
+        <Folder Include="Metrics" />
+        <Folder Include="Notifications" />
+        <Folder Include="Points" />
+        <Folder Include="PremiumFeatures" />
+        <Folder Include="Presence" />
+        <Folder Include="PrivateMessages" />
+        <Folder Include="Publish" />
+        <Folder Include="Search" />
+        <Folder Include="Thumbnails" />
+        <Folder Include="ThumbnailsResizer" />
+        <Folder Include="Trades" />
+        <Folder Include="TranslationRoles" />
+        <Folder Include="Translations" />
+        <Folder Include="TwoStepVerification" />
+        <Folder Include="UserModeration" />
+        <Folder Include="Users" />
+        <Folder Include="Voice" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     </ItemGroup>
 
 </Project>
