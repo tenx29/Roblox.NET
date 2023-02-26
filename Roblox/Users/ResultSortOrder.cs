@@ -1,4 +1,4 @@
-﻿namespace Roblox.Users.Models
+﻿namespace Roblox.Users
 {
     public enum ResultSortOrder
     {

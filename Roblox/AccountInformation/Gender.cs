@@ -1,4 +1,4 @@
-﻿namespace Roblox.AccountInformation.Models
+﻿namespace Roblox.AccountInformation
 {
     public enum Gender
     {
