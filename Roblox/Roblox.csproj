@@ -52,7 +52,6 @@
         <Folder Include="Translations"/>
         <Folder Include="TwoStepVerification"/>
         <Folder Include="UserModeration"/>
-        <Folder Include="Users"/>
         <Folder Include="Voice"/>
     </ItemGroup>
 
