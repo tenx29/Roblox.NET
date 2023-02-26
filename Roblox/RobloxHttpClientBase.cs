@@ -9,6 +9,8 @@ namespace Roblox
     public class RobloxHttpClientBase
     {
         public readonly Uri BaseUri;
+        protected readonly HttpClient HttpClient;
+        protected RobloxClientCredential Credential;
 
         /// <summary>
         ///     Creates a new <see cref="RobloxHttpClientBase" /> instance.
@@ -21,6 +23,39 @@ namespace Roblox
             HttpClient.BaseAddress = BaseUri;
         }
 
-        protected HttpClient HttpClient { get; }
+        /// <summary>
+        ///     Creates a new <see cref="RobloxHttpClientBase" /> instance with user credentials.
+        /// </summary>
+        /// <param name="baseUri"></param>
+        /// <param name="credential"></param>
+        public RobloxHttpClientBase(Uri baseUri, RobloxClientCredential credential) : this(baseUri)
+        {
+            Credential = credential;
+            HttpClient.DefaultRequestHeaders.Add("Cookie", $".ROBLOSECURITY={Credential.Cookie}");
+        }
+
+        /// <summary>
+        ///     The authentication status of the client.
+        /// </summary>
+        public bool IsAuthenticated => Credential != null;
+
+        /// <summary>
+        ///     Authenticates the client with the given credentials after the client has been created.
+        /// </summary>
+        /// <param name="credential"></param>
+        public void Authenticate(RobloxClientCredential credential)
+        {
+            Credential = credential;
+            HttpClient.DefaultRequestHeaders.Add("Cookie", $".ROBLOSECURITY={Credential.Cookie}");
+        }
+
+        /// <summary>
+        ///     Removes the authentication token from the client.
+        /// </summary>
+        public void RemoveAuthentication()
+        {
+            Credential = null;
+            HttpClient.DefaultRequestHeaders.Remove("Cookie");
+        }
     }
 }
