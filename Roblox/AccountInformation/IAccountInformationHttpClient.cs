@@ -92,55 +92,55 @@ namespace Roblox.AccountInformation
         /// <param name="verificationCode"></param>
         /// <returns></returns>
         Task VerifyPhoneAsync(string verificationCode);
-        
+
         /// <summary>
-        /// Get the authenticated user's promotion channels.
+        ///     Get the authenticated user's promotion channels.
         /// </summary>
         /// <returns></returns>
         Task<AuthenticatedPromotionChannels> GetPromotionChannelsAsync();
-        
+
         /// <summary>
-        /// Get the promotion channels for the given user.
+        ///     Get the promotion channels for the given user.
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
         Task<PromotionChannels> GetPromotionChannelsAsync(long userId);
-        
+
         /// <summary>
-        /// Update the authenticated user's promotion channels.
+        ///     Update the authenticated user's promotion channels.
         /// </summary>
         /// <param name="channels"></param>
         /// <returns></returns>
         Task SetPromotionChannelsAsync(AuthenticatedPromotionChannels channels);
-        
+
         /// <summary>
-        /// Remove the authenticated user's star code affiliate supporter.
+        ///     Remove the authenticated user's star code affiliate supporter.
         /// </summary>
         /// <returns></returns>
         Task DeleteStarCodeAffiliateAsync();
-        
+
         /// <summary>
-        /// Get the authenticated user's star code affiliate supporter.
+        ///     Get the authenticated user's star code affiliate supporter.
         /// </summary>
         /// <returns></returns>
         Task<StarCodeAffiliate> GetStarCodeAffiliateAsync();
-        
+
         /// <summary>
-        /// Adds a star code affiliate supporter to the authenticated user.
+        ///     Adds a star code affiliate supporter to the authenticated user.
         /// </summary>
         /// <param name="code">Star code affiliate code</param>
         /// <returns></returns>
         Task<StarCodeAffiliate> AddStarCodeAffiliateAsync(string code);
-        
+
         /// <summary>
-        /// Returns a collection of badges belonging to the given user.
+        ///     Returns a collection of badges belonging to the given user.
         /// </summary>
         /// <param name="userId"></param>
         /// <returns>Collection of badges</returns>
         Task<IEnumerable<Badge>> GetBadgesAsync(long userId);
-        
+
         /// <summary>
-        /// Verify the authenticated user's email from a verification ticket.
+        ///     Verify the authenticated user's email from a verification ticket.
         /// </summary>
         /// <param name="verificationTicket"></param>
         /// <returns>Asset ID of the verified user hat</returns>
