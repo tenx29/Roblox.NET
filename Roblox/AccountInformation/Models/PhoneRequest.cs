@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace Roblox.AccountInformation.Models
+namespace Roblox.AccountInformation.Models;
+
+public class PhoneRequest : Phone
 {
-    public class PhoneRequest : Phone
-    {
-        [JsonProperty("password")] public string Password { get; set; }
-    }
+    [JsonProperty("password")] public string Password { get; set; }
 }

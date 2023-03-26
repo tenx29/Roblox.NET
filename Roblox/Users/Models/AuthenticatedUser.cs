@@ -1,13 +1,12 @@
 ﻿using Newtonsoft.Json;
 
-namespace Roblox.Users.Models
+namespace Roblox.Users.Models;
+
+public class AuthenticatedUser
 {
-    public class AuthenticatedUser
-    {
-        [JsonProperty("id")] public long Id { get; set; }
+    [JsonProperty("id")] public long Id { get; set; }
 
-        [JsonProperty("name")] public string Name { get; set; }
+    [JsonProperty("name")] public string Name { get; set; }
 
-        [JsonProperty("displayName")] public string DisplayName { get; set; }
-    }
+    [JsonProperty("displayName")] public string DisplayName { get; set; }
 }

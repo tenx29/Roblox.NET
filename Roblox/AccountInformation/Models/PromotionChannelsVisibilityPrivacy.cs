@@ -1,11 +1,10 @@
-﻿namespace Roblox.AccountInformation.Models
+﻿namespace Roblox.AccountInformation.Models;
+
+public enum PromotionChannelsVisibilityPrivacy
 {
-    public enum PromotionChannelsVisibilityPrivacy
-    {
-        NoOne = 0,
-        Friends = 1,
-        FriendsAndFollowing = 2,
-        FriendsFollowingAndFollowers = 3,
-        AllUsers = 4
-    }
+    NoOne = 0,
+    Friends = 1,
+    FriendsAndFollowing = 2,
+    FriendsFollowingAndFollowers = 3,
+    AllUsers = 4
 }

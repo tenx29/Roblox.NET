@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Roblox.AccountInformation.Models
+namespace Roblox.AccountInformation.Models;
+
+public class AuthenticatedPromotionChannels : PromotionChannels
 {
-    public class AuthenticatedPromotionChannels : PromotionChannels
-    {
-        [JsonProperty("promotionChannelsVisibilityPrivacy")]
-        public PromotionChannelsVisibilityPrivacy PromotionChannelsVisibilityPrivacy { get; set; }
-    }
+    [JsonProperty("promotionChannelsVisibilityPrivacy")]
+    public PromotionChannelsVisibilityPrivacy PromotionChannelsVisibilityPrivacy { get; set; }
 }

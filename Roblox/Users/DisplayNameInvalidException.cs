@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Roblox.Users
+namespace Roblox.Users;
+
+public class DisplayNameInvalidException : Exception
 {
-    public class DisplayNameInvalidException : Exception
-    {
-        public DisplayNameInvalidException(string message) : base(message) { }
-    }
+    public DisplayNameInvalidException(string message) : base(message) { }
 }

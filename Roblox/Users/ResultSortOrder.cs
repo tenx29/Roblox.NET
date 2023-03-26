@@ -1,8 +1,7 @@
-﻿namespace Roblox.Users
+﻿namespace Roblox.Users;
+
+public enum ResultSortOrder
 {
-    public enum ResultSortOrder
-    {
-        Ascending = 0,
-        Descending = 1
-    }
+    Ascending = 0,
+    Descending = 1
 }
