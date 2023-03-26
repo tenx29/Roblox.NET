@@ -27,4 +27,51 @@ public class AccountInformationTests
         var result = await client.GetBirthDateAsync();
         Assert.AreEqual(new DateTime(expected.Year, expected.Month, expected.Day), result);
     }
+
+    [TestMethod]
+    public async Task SetBirthDateAsync()
+    {
+        var newDate = new DateTime(2000, 1, 1);
+        var httpClient = MockHttpClientProvider.FromEmptyResponse();
+        httpClient.BaseAddress = BaseUri;
+        var client = new AccountInformationHttpClient(httpClient);
+        await client.SetBirthDateAsync(newDate);
+    }
+
+    [TestMethod]
+    public async Task GetDescriptionAsync()
+    {
+        var expected = new UserDescription()
+        {
+            Description = "Hello, world!"
+        };
+        var httpClient = MockHttpClientProvider.FromObjectResponse(expected);
+        httpClient.BaseAddress = BaseUri;
+        var client = new AccountInformationHttpClient(httpClient);
+        var result = await client.GetDescriptionAsync();
+        Assert.AreEqual(expected.Description, result.Description);
+    }
+    
+    [TestMethod]
+    public async Task SetDescriptionAsync_WithDescriptionObject()
+    {
+        var newDescription = new UserDescription()
+        {
+            Description = "Hello, world!"
+        };
+        var httpClient = MockHttpClientProvider.FromEmptyResponse();
+        httpClient.BaseAddress = BaseUri;
+        var client = new AccountInformationHttpClient(httpClient);
+        await client.SetDescriptionAsync(newDescription);
+    }
+    
+    [TestMethod]
+    public async Task SetDescriptionAsync_WithStringDescription()
+    {
+        var newDescription = "Hello, world!";
+        var httpClient = MockHttpClientProvider.FromEmptyResponse();
+        httpClient.BaseAddress = BaseUri;
+        var client = new AccountInformationHttpClient(httpClient);
+        await client.SetDescriptionAsync(newDescription);
+    }
 }

@@ -40,34 +40,70 @@ public class AccountInformationHttpClient : RobloxHttpClientBase
         var result = await response.Content.ReadFromJsonAsync<DateResponse>();
         return new DateTime(result.Year, result.Month, result.Day);
     }
-    /*
+
     /// <summary>
     ///     Update the authenticated user's birth date.
     /// </summary>
     /// <param name="date">The new birth date. Only year, month and day will be used.</param>
     /// <param name="password"></param>
     /// <returns></returns>
-    Task SetBirthDateAsync(DateTime date, string password = null);
+    public async Task SetBirthDateAsync(DateTime date, string password = null)
+    {
+        var newDate = new DateRequest
+        {
+            Year = date.Year,
+            Month = date.Month,
+            Day = date.Day,
+            Password = password
+        };
+        var response = await HttpClient.PostAsJsonAsync("/v1/birthdate", newDate);
+        response.EnsureSuccessStatusCode();
+    }
+
 
     /// <summary>
     ///     Get the authenticated user's description.
     /// </summary>
     /// <returns>Description of the user</returns>
-    Task<string> GetDescriptionAsync();
+    public async Task<UserDescription> GetDescriptionAsync()
+    {
+        var response = await HttpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, "/v1/description"));
+        response.EnsureSuccessStatusCode();
+        var result = await response.Content.ReadFromJsonAsync<UserDescription>();
+        return result;
+    }
 
     /// <summary>
     ///     Set the authenticated user's description.
     /// </summary>
     /// <param name="description"></param>
     /// <returns>New description of the user</returns>
-    Task<string> SetDescriptionAsync(string description);
-
+    public async Task SetDescriptionAsync(UserDescription description)
+    {
+        var response = await HttpClient.PostAsJsonAsync("/v1/description", description);
+        response.EnsureSuccessStatusCode();
+    }
+    
+    /// <summary>
+    ///     Set the authenticated user's description.
+    /// </summary>
+    /// <param name="description"></param>
+    /// <returns>New description of the user</returns>
+    public async Task SetDescriptionAsync(string description)
+    {
+        await SetDescriptionAsync(new UserDescription {Description = description});
+    }
+    
+    /*
     /// <summary>
     ///     Get the authenticated user's gender.
     /// </summary>
     /// <returns></returns>
-    Task<Gender> GetGenderAsync();
-
+    Task<Gender> GetGenderAsync()
+    {
+        throw new NotImplementedException();
+    }
+    
     /// <summary>
     ///     Set the authenticated user's gender.
     /// </summary>

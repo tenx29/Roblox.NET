@@ -93,4 +93,17 @@ public static class MockHttpClientProvider
         
         return new HttpClient(handlerMock.Object);
     }
+    
+    public static HttpClient FromEmptyResponse(HttpStatusCode statusCode = HttpStatusCode.OK)
+    {
+        var handlerMock = new Mock<HttpMessageHandler>();
+        var response = new HttpResponseMessage(statusCode);
+        
+        handlerMock.Protected()
+            .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>())
+            .ReturnsAsync(response)
+            .Verifiable();
+        
+        return new HttpClient(handlerMock.Object);
+    }
 }
