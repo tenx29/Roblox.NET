@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox", "Roblox\Roblox.csproj", "{C9C8678F-5CCC-432D-96A8-60A1E49DEFA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox", "src\Roblox\Roblox.csproj", "{C9C8678F-5CCC-432D-96A8-60A1E49DEFA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A9CCCCB0-01FD-47DE-B953-ECD4AC6B2C1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "tests\Tests\Tests.csproj", "{A9CCCCB0-01FD-47DE-B953-ECD4AC6B2C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
