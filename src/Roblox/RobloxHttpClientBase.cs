@@ -45,11 +45,10 @@ public class RobloxHttpClientBase : IRobloxHttpClient
     /// <summary>
     ///     Creates a new <see cref="RobloxHttpClientBase" /> instance with a custom <see cref="HttpClient" />.
     /// </summary>
-    /// <param name="baseUri"></param>
     /// <param name="httpClient"></param>
-    public RobloxHttpClientBase(Uri baseUri, HttpClient httpClient)
+    public RobloxHttpClientBase(HttpClient httpClient)
     {
-        BaseUri = baseUri;
+        BaseUri = httpClient.BaseAddress;
         HttpClient = httpClient;
     }
 

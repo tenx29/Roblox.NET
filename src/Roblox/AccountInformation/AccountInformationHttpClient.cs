@@ -1,32 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Roblox.AccountInformation.Models;
 
 namespace Roblox.AccountInformation;
 
-public class AccountInformationHttpClient : RobloxHttpClientBase, IAccountInformationHttpClient
+public class AccountInformationHttpClient : RobloxHttpClientBase
 {
+    public new static Uri BaseUri { get; } = new("https://accountinformation.roblox.com");
+    
     /// <summary>
     ///     Create a new <see cref="AccountInformationHttpClient" />.
     /// </summary>
-    /// <param name="baseUri"></param>
-    public AccountInformationHttpClient(Uri baseUri) : base(baseUri) { }
+    public AccountInformationHttpClient() : base(BaseUri) { }
     
     /// <summary>
     ///     Create a new <see cref="AccountInformationHttpClient" /> with user credentials.
     /// </summary>
-    /// <param name="baseUri"></param>
     /// <param name="credential"></param>
-    public AccountInformationHttpClient(Uri baseUri, RobloxClientCredential credential) : base(baseUri, credential) { }
+    public AccountInformationHttpClient(RobloxClientCredential credential) : base(BaseUri, credential) { }
     
     /// <summary>
     ///     Create a new <see cref="AccountInformationHttpClient" /> with a custom <see cref="HttpClient" />.
     /// </summary>
-    /// <param name="baseUri"></param>
     /// <param name="httpClient"></param>
-    public AccountInformationHttpClient(Uri baseUri, HttpClient httpClient) : base(baseUri, httpClient) { }
+    public AccountInformationHttpClient(HttpClient httpClient) : base(httpClient) { }
     
     #region AccountInformation API
 
@@ -36,12 +35,12 @@ public class AccountInformationHttpClient : RobloxHttpClientBase, IAccountInform
     /// <returns></returns>
     public async Task<DateTime> GetBirthDateAsync()
     {
-        var response = await HttpClient.GetAsync("/account-information/birth-date");
+        var response = await HttpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, "/v1/birthdate"));
         response.EnsureSuccessStatusCode();
-        var responseContent = await response.Content.ReadAsStringAsync();
-        return DateTime.Parse(responseContent);
+        var result = await response.Content.ReadFromJsonAsync<DateResponse>();
+        return new DateTime(result.Year, result.Month, result.Day);
     }
-
+    /*
     /// <summary>
     ///     Update the authenticated user's birth date.
     /// </summary>
@@ -174,6 +173,6 @@ public class AccountInformationHttpClient : RobloxHttpClientBase, IAccountInform
     /// <param name="verificationTicket"></param>
     /// <returns>Asset ID of the verified user hat</returns>
     Task<long> VerifyEmailAsync(string verificationTicket);
-    
+    */
     #endregion
 }

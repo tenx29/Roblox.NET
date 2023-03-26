@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Roblox.AccountInformation.Models;
 
@@ -10,18 +10,18 @@ public class DateResponse
     /// <summary>
     ///     The day of the month.
     /// </summary>
-    [JsonProperty("birthDay")]
-    public int Day { get; set; }
+    [JsonPropertyName("birthDay")]
+    public int Day { get; init; }
 
     /// <summary>
     ///     The month of the year.
     /// </summary>
-    [JsonProperty("birthMonth")]
-    public int Month { get; set; }
+    [JsonPropertyName("birthMonth")]
+    public int Month { get; init; }
 
     /// <summary>
     ///     The year.
     /// </summary>
-    [JsonProperty("birthYear")]
-    public int Year { get; set; }
+    [JsonPropertyName("birthYear")]
+    public int Year { get; init; }
 }
