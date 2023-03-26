@@ -9,7 +9,11 @@ namespace Roblox;
 public class RobloxHttpClientBase : IRobloxHttpClient
 {
     public Uri BaseUri { get; }
-    public HttpClient HttpClient { get; set; }
+    
+    /// <summary>
+    ///     HTTP client used for requests.
+    /// </summary>
+    protected HttpClient HttpClient { get; set; }
     
     /// <summary>
     ///     Credentials used for authentication.
@@ -36,6 +40,17 @@ public class RobloxHttpClientBase : IRobloxHttpClient
     {
         Credential = credential;
         HttpClient.DefaultRequestHeaders.Add("Cookie", $".ROBLOSECURITY={Credential.Cookie}");
+    }
+    
+    /// <summary>
+    ///     Creates a new <see cref="RobloxHttpClientBase" /> instance with a custom <see cref="HttpClient" />.
+    /// </summary>
+    /// <param name="baseUri"></param>
+    /// <param name="httpClient"></param>
+    public RobloxHttpClientBase(Uri baseUri, HttpClient httpClient)
+    {
+        BaseUri = baseUri;
+        HttpClient = httpClient;
     }
 
     /// <summary>

@@ -14,11 +14,6 @@ public interface IRobloxHttpClient
     public Uri BaseUri { get; }
 
     /// <summary>
-    ///     HTTP client used for requests.
-    /// </summary>
-    HttpClient HttpClient { get; set; }
-
-    /// <summary>
     ///     The authentication status of the client.
     /// </summary>
     bool IsAuthenticated { get; }
