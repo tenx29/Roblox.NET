@@ -10,7 +10,7 @@ namespace tests;
 [TestClass]
 public class AccountInformationTests
 {
-    private static readonly Uri BaseUri = new Uri("https://localhost");
+    private static readonly Uri BaseUri = new("https://localhost");
     
     [TestMethod]
     public async Task GetBirthDateAsync()
